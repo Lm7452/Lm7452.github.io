@@ -96,3 +96,25 @@ caption{margin-bottom:10px}
 .evidence-figure,.flow-figure,.agent-pair,.metric-wrap{margin-top:24px}
 .case-end{margin-top:36px}
 }
+
+/* Margin notes. Inline under each section by default; once the reading column is wide
+   enough, text and figures share one main column and notes and captions move to its margin. */
+#content{container-type:inline-size}
+.story{display:flex;flex-direction:column}
+.story .note{order:3;display:flex;flex-wrap:wrap;gap:6px 28px;align-items:flex-start;margin:18px 0 0;padding-top:12px;border-top:2px solid var(--accent)}
+.story .note p{flex-basis:100%;max-width:none;margin:0;font-size:13px;line-height:1.5;color:var(--muted)}
+.stat b{display:block;font:italic 700 28px/1.05 Georgia,serif;letter-spacing:-.02em;color:var(--ink)}
+.stat span{display:block;max-width:24ch;margin-top:3px;font-size:12px;line-height:1.4;color:var(--muted)}
+@container (min-width:860px){
+.case-title,.meta,.actions,.story,.evidence-figure,.flow-figure,.agent-pair,.metric-wrap,.case-end{width:min(680px,100% - 320px)}
+.agent-pair .evidence-figure{width:auto}
+.story{display:block}
+.story p{max-width:none}
+.story .note{float:right;clear:right;display:block;width:260px;margin:4px -320px 12px 0;padding-top:10px}
+.story .note p{margin-bottom:10px}
+.stat{margin-bottom:14px}
+.stat:last-child{margin-bottom:0}
+.evidence-figure,.flow-figure{position:relative}
+.evidence-figure figcaption,.flow-figure figcaption{position:absolute;top:0;left:calc(100% + 60px);width:260px;margin:0;padding-top:10px;border-top:1px solid var(--line)}
+.agent-pair .evidence-figure figcaption{position:static;width:auto;margin-top:10px;padding-top:0;border-top:0}
+}
