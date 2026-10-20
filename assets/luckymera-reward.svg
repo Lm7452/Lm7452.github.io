@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" font-family="DejaVu Sans, Arial, Helvetica, sans-serif">
+  <rect width="1000" height="540" fill="#fff9ec"/>
+  <text x="20" y="42" font-size="27" font-weight="bold" fill="#111">Mean reward per step over 10,000 test steps</text>
+  <text x="20" y="74" font-size="17" fill="#5f6055">Higher is better · the cloned agent learns the simple room, not the key room</text>
+  <g stroke="#ece6d6" stroke-width="1.5">
+    <path d="M90 155H960M90 245H960M90 335H960"/>
+  </g>
+  <g font-size="15" fill="#333" text-anchor="end">
+    <text x="78" y="160">0.30</text><text x="78" y="250">0.20</text><text x="78" y="340">0.10</text><text x="78" y="430">0.00</text>
+  </g>
+  <path d="M90 110V470" stroke="#333" stroke-width="1.5"/>
+  <path d="M90 425H960" stroke="#333" stroke-width="2"/>
+  <!-- 5x5 room -->
+  <path d="M188 425V158a4 4 0 0 1 4-4h102a4 4 0 0 1 4 4V425Z" fill="#626958"/>
+  <path d="M302 425V309a4 4 0 0 1 4-4h102a4 4 0 0 1 4 4V425Z" fill="#b94326"/>
+  <!-- key room -->
+  <path d="M608 425V385a4 4 0 0 1 4-4h102a4 4 0 0 1 4 4V425Z" fill="#626958"/>
+  <path d="M722 425V429a4 4 0 0 0 4 4h102a4 4 0 0 0 4-4V425Z" fill="#b94326"/>
+  <g font-size="17" fill="#111" text-anchor="middle">
+    <text x="243" y="144">0.301</text><text x="357" y="295">0.133</text>
+    <text x="663" y="371">0.049</text><text x="777" y="455">−0.009</text>
+  </g>
+  <g font-size="18" fill="#111" text-anchor="middle">
+    <text x="300" y="500">Random 5×5 room</text><text x="720" y="500">Fixed key room</text>
+  </g>
+  <g font-size="16" fill="#111">
+    <rect x="760" y="112" width="26" height="16" fill="#626958"/><text x="796" y="126">Symbolic agent</text>
+    <rect x="760" y="140" width="26" height="16" fill="#b94326"/><text x="796" y="154">Behavioral cloning</text>
+  </g>
+</svg>
