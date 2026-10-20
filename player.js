@@ -24,16 +24,23 @@ document.querySelector('#play').onclick=()=>{if(active?.id==='dejavu')window.ope
 document.addEventListener('click',e=>{const button=e.target.closest('.recording');if(!button)return;const on=button.getAttribute('aria-pressed')!=='true';button.parentElement.querySelector('img').src=on?button.dataset.recording:button.dataset.still;button.setAttribute('aria-pressed',String(on));button.textContent=on?'Stop recording':'Play recording';});
 matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches)document.querySelectorAll('.recording[aria-pressed="true"]').forEach(b=>b.click());});
 
+const positionBar=document.querySelector('#position'),positionValue=document.querySelector('#position-value'),motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
+let positionLabel='',positionFrame=0;
 render(location.hash.slice(1));
 
 function updatePosition(){
+ positionFrame=0;
  const range=content.scrollHeight-content.clientHeight;
  const progress=range>1?Math.min(1,Math.max(0,content.scrollTop/range)):0;
- document.querySelector('#position').value=progress*100;
- document.querySelector('#position-value').textContent=String(Math.round(progress*100)).padStart(3,'0')+' / 100';
- document.querySelector('.deck').style.setProperty('--reel-angle',(reduced()?0:progress*1080)+'deg');
+ positionBar.value=progress*100;
+ const label=String(Math.round(progress*100)).padStart(3,'0')+' / 100';
+ if(label!==positionLabel)positionValue.textContent=positionLabel=label;
+ // Turn only the two hubs; a property on the whole deck restyles every part of it.
+ const angle=(motionQuery.matches?0:progress*1080)+'deg';
+ loaded.querySelectorAll('.hub').forEach(h=>h.style.setProperty('--reel-angle',angle));
 }
-content.addEventListener('scroll',updatePosition,{passive:true});
+// Scroll events can outpace the display; update at most once per frame.
+content.addEventListener('scroll',()=>{if(!positionFrame)positionFrame=requestAnimationFrame(updatePosition)},{passive:true});
 new ResizeObserver(updatePosition).observe(content);
 matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',updatePosition);
 window.addEventListener('resize',updatePosition);
