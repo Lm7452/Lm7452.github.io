@@ -63,7 +63,7 @@ header,main,footer{max-width:none}
 #content:hover,#content:focus-visible{scrollbar-color:var(--ink) var(--paper)}
 /* Chromium/WebKit: a tactile tape-coloured rail with a generous drag target. */
 @supports selector(::-webkit-scrollbar){
- #content{scrollbar-color:auto}
+ #content,#content:hover,#content:focus-visible{scrollbar-color:auto}
  #content::-webkit-scrollbar{width:14px}
  #content::-webkit-scrollbar-track{background:var(--paper);border:1px solid var(--line);border-radius:10px}
  #content::-webkit-scrollbar-thumb{background:var(--accent);border:3px solid var(--paper);border-radius:10px;min-height:44px}
