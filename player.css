@@ -71,3 +71,28 @@ header,main,footer{max-width:none}
 }
 @media(forced-colors:active){#content{scrollbar-color:auto}}
 .evidence-figure.chart img{max-width:520px;margin:0 auto}
+/* Reading rhythm: a 66ch measure, one spacing scale, and figures that line up. */
+.case-title{padding-bottom:28px}
+.case-title .lead{max-width:34ch;margin:16px 0 0}
+.meta{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 28px;padding:22px 0;font-size:14px;line-height:1.5}
+.meta strong{margin-bottom:4px}
+.actions{margin-top:22px}
+.story{padding:0;margin-top:48px;border-bottom:0}
+.story h2{margin:0 0 14px;font-size:24px;line-height:1.25}
+.story p{max-width:66ch;margin:0 0 16px;line-height:1.7}
+.story p:last-child{margin-bottom:0}
+.evidence-figure,.flow-figure,.agent-pair,.metric-wrap{margin:32px 0 0}
+.agent-pair .evidence-figure{margin:0}
+.agent-pair{align-items:start}
+.evidence-figure figcaption,.flow-figure figcaption{max-width:66ch;font-size:12px;line-height:1.55;margin-top:10px}
+.metric-wrap{max-width:640px}
+caption{margin-bottom:10px}
+.case-end{margin-top:48px;padding:20px 0 8px;border-top:1px solid var(--line)}
+@media(max-width:800px){
+.meta{grid-template-columns:1fr 1fr;gap:12px 20px}
+.meta div:last-child{grid-column:1/-1}
+.story{margin-top:36px}
+.story h2{font-size:21px}
+.evidence-figure,.flow-figure,.agent-pair,.metric-wrap{margin-top:24px}
+.case-end{margin-top:36px}
+}
