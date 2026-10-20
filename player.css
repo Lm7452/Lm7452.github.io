@@ -96,3 +96,7 @@ caption{margin-bottom:10px}
 .evidence-figure,.flow-figure,.agent-pair,.metric-wrap{margin-top:24px}
 .case-end{margin-top:36px}
 }
+
+/* One reading column: text, figures and rules share the same left and right edges. */
+#content>.case-title,#content>.meta,#content>.actions,#content>.story,#content>.evidence-figure,#content>.flow-figure,#content>.agent-pair,#content>.metric-wrap,#content>.case-end{max-width:720px;margin-left:auto;margin-right:auto}
+.case-title .lead,.story p,.evidence-figure figcaption,.flow-figure figcaption{max-width:none}
